@@ -1,0 +1,11 @@
+[package]
+name = "meowtsun/lootset"
+description = "LootSet is an immutable loot container built around table-based configurations rather than raw objects"
+version = "1.0.0"
+authors = ["Meowtsun"]
+
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+license = "MIT"
+
+[dependencies]
