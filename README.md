@@ -4,6 +4,15 @@
 
 LootSet is an immutable loot container built around table-based configurations rather than raw objects
 
+### Features
+
+- Immutable configuration
+- Full Luau type inference
+- Weighted loot rolls
+- Linear luck modifier
+- Retry-based rolling
+- Built-in sampling utilities
+
 ---
 
 ### Installation
