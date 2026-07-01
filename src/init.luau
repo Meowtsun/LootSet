@@ -21,6 +21,16 @@ const SampleFormat = {
 	Listing = '	- %s : %d (about %.2f%% from %.2f%%)',
 }
 
+export type LootSet = {
+	Sample: (self: LootSet, label: string, amount: number, luck: number?, attempts: number?) -> (),
+	Roll: (self: LootSet, luck: number?, attempts: number?) -> (any, number),
+		
+	GetWeightOf: (self: LootSet, name: string, usePercentage: boolean?) -> (number),
+	ListWeights: (self: LootSet, usePercentage: boolean?) -> {
+		{ Weight: number, Item: any } 
+	},
+}
+
 local LootSet = {}
 LootSet.__index = LootSet
 
@@ -41,7 +51,7 @@ local function weightSort(a, b)
 end
 
 
-function LootSet.new<t> (config: t)
+function LootSet.new<t> (config: t) : t & LootSet
 	return setmetatable(config :: t, LootSet)
 end
 
@@ -244,4 +254,7 @@ function LootSet:GetWeightOf(name: string, usePercentage: boolean)
 end
 
 
-return LootSet
+return LootSet :: {
+	loot: typeof(LootSet.loot),
+	new: typeof(LootSet.new),
+}
